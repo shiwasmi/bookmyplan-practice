@@ -8,6 +8,6 @@ public class HotelBooking {
 
     @GetMapping("/hotelbooking")
     public String getName() {
-        return "Book your hotel as soon as possible";
+        return "Book your hotel as soon as possible bookings are going to full";
     }
 }
