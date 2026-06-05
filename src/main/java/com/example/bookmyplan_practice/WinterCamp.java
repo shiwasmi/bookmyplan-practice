@@ -8,6 +8,6 @@ public class WinterCamp {
 
     @GetMapping("/WinterCamp")
     public String getName() {
-        return "Welcome to WinterCamp on JUNE-2026";
+        return "Welcome to WinterCamp on JUNE 19 -2026";
     }
 }
