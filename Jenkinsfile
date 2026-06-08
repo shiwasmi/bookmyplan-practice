@@ -32,7 +32,7 @@ pipeline {
                 sh 'mvn package'
                 sh '''
                     # If WAR is expected
-                    cp target/*.war target/bookmyplan-practice-${BUILD_NUMBER}.war
+                    cp target/*.war target/bookmyplan-practice-1.1.${BUILD_NUMBER}.war
                 '''
                 archiveArtifacts artifacts: 'target/bookmyplan-practice-*.war', fingerprint: true
                 echo 'Artifact Created Successfully!!'
