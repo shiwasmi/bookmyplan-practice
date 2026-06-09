@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'jenkins-fis-slave-practice'}
 
     options {
         buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
