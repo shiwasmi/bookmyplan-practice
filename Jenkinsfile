@@ -15,7 +15,7 @@ pipeline {
             steps {
                 echo 'Starting Code Compilation...'
                 sh 'mvn clean compile'
-                echo 'Code Compilation Completed Successfully!'
+                echo 'Code Compilation Completed Successfully!!'
             }
         }
 
@@ -23,7 +23,7 @@ pipeline {
             steps {
                 echo 'Running JUnit Test Cases...'
                 sh 'mvn test'
-                echo 'JUnit Test Cases Completed Successfully!'
+                echo 'JUnit Test Cases Completed Successfully!!'
             }
         }
 
