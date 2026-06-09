@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo 'Starting Code Compilation...'
                 sh 'mvn clean compile'
-                echo 'Code Compilation Completed Successfully!!!'
+                echo 'Code Compilation Completed Successfully!'
             }
         }
 
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo 'Running JUnit Test Cases...'
                 sh 'mvn test'
-                echo 'JUnit Test Cases Completed Successfully!!!'
+                echo 'JUnit Test Cases Completed Successfully!'
             }
         }
 
@@ -35,7 +35,7 @@ pipeline {
                     cp target/*.war target/bookmyplan-practice-1.1.${BUILD_NUMBER}.war
                 '''
                 archiveArtifacts artifacts: 'target/bookmyplan-practice-*.war', fingerprint: true
-                echo 'Artifact Created Successfully!!!'
+                echo 'Artifact Created Successfully!!'
             }
         }
     }
