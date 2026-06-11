@@ -91,7 +91,7 @@ pipeline {
                               docker login --username AWS --password-stdin 251335054837.dkr.ecr.ap-south-1.amazonaws.com
 
                             docker tag bookmyplan-practice:latest 251335054837.dkr.ecr.ap-south-1.amazonaws.com/sagardocker:bookmyplan-practice-latest
-                            docker push 251335054837.dkr.ecr.ap-south-1.amazonaws.com/sagardocker:latest
+                            docker push 251335054837.dkr.ecr.ap-south-1.amazonaws.com/sagardocker:bookmyplan-practice-latest
                         '''
                         echo 'Docker Image Pushed to Amazon ECR Successfully!'
                     }
