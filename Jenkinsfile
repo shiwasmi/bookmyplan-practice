@@ -73,7 +73,7 @@ pipeline {
                 docker rmi bookmyplan-practice:latest || echo "Image not found or already deleted"
                 docker image prune -f
                 '''
-                echo 'Local Docker Images Cleaned Up Successfully!'
+                echo 'Local Docker Images Cleaned Up Successfully!!'
             }
         }
     }
