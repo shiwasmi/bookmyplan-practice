@@ -90,8 +90,8 @@ pipeline {
                             aws ecr get-login-password --region ap-south-1 | \
                               docker login --username AWS --password-stdin 251335054837.dkr.ecr.ap-south-1.amazonaws.com
 
-                            docker tag bookmyplan-practice:latest 251335054837.dkr.ecr.ap-south-1.amazonaws.com/bookmyplan-practice:latest
-                            docker push 251335054837.dkr.ecr.ap-south-1.amazonaws.com/bookmyplan-practice:latest
+                            docker tag bookmyplan-practice:latest 251335054837.dkr.ecr.ap-south-1.amazonaws.com/sagardocker:latest
+                            docker push 251335054837.dkr.ecr.ap-south-1.amazonaws.com/sagardocker:latest
                         '''
                         echo 'Docker Image Pushed to Amazon ECR Successfully!'
                     }
@@ -105,7 +105,7 @@ pipeline {
                 sh '''
                 docker rmi sagardocker/bookmyplan-practice:latest || echo "Image not found or already deleted"
                 docker rmi bookmyplan-practice:latest || echo "Image not found or already deleted"
-                docker rmi 251335054837.dkr.ecr.ap-south-1.amazonaws.com/bookmyplan-practice:latest || echo "Image not found or already deleted"
+                docker rmi 251335054837.dkr.ecr.ap-south-1.amazonaws.com/sagardocker:latest || echo "Image not found or already deleted"
                 docker image prune -f
                 '''
                 echo 'Local Docker Images Cleaned Up Successfully!!'
