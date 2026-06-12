@@ -99,19 +99,35 @@ pipeline {
             }
         }
 
-        stage('Upload Docker Image to Nexus') {
+        //stage('Upload Docker Image to Nexus') {
+        //    steps {
+        //        script {
+        //            withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        //                sh """
+        //            echo $PASSWORD | docker login http://13.206.69.134:8085 -u $USERNAME --password-stdin
+        //            docker tag bookmyplan-practice:latest 13.206.69.134:8085/bookmyplan-practice:latest
+        //            docker push 13.206.69.134:8085/bookmyplan-practice:latest
+        //        """
+        //            }
+        //        }
+        //    }
+        //}
+
+        stage('Upload Docker Image to Harbor') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                        sh """
-                    echo $PASSWORD | docker login http://13.206.69.134:8085 -u $USERNAME --password-stdin
-                    docker tag bookmyplan-practice:latest 13.206.69.134:8085/bookmyplan-practice:latest
-                    docker push 13.206.69.134:8085/bookmyplan-practice:latest
-                """
+                    withCredentials([usernamePassword(credentialsId: 'harbor-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    sh '''
+                    echo "$PASSWORD" | docker login 65.2.179.107:8082 -u "$USERNAME" --password-stdin
+                    docker tag bookmyplan-practice:latest 65.2.179.107:8082/bookmyplan-practice/bookmyplan-practice:latest
+                    docker push 65.2.179.107:8082/bookmyplan-practice/bookmyplan-practice:latest
+                    docker logout 65.2.179.107:8082
+                    '''
                     }
                 }
             }
         }
+
 
         stage('Clean Up Local Docker Images') {
             steps {
