@@ -99,6 +99,20 @@ pipeline {
             }
         }
 
+        stage('Upload Docker Image to Nexus') {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                        sh """
+                            echo $PASSWORD | docker login http://13.206.69.134:8085 -u admin --password-stdin
+                            docker tag bookmyplan-practice:latest 13.206.69.134:8085/bookmyplan-practice:latest
+                            docker push 13.206.69.134:8085/bookmyplan-practice:latest
+                        """
+                    }
+                }
+            }
+        }
+
         stage('Clean Up Local Docker Images') {
             steps {
                 echo 'Cleaning Up Local Docker Images...'
