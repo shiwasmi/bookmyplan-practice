@@ -104,7 +104,7 @@ pipeline {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh """
-                            echo $PASSWORD | docker login http://13.206.69.134:8085 -u ${USERNAME} -p ${PASSWORD}
+                            echo $PASSWORD | docker login http://13.206.69.134:8085 -u $USERNAME --password-stdin
                             docker tag bookmyplan-practice:latest 13.206.69.134:8085/bookmyplan-practice:latest
                             docker push 13.206.69.134:8085/bookmyplan-practice:latest
                         """
