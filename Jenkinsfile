@@ -113,20 +113,20 @@ pipeline {
         //    }
         //}
 
-        stage('Upload Docker Image to Harbor') {
-            steps {
-                script {
-                    withCredentials([usernamePassword(credentialsId: 'harbor-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh '''
-                    echo "$PASSWORD" | docker login 13.127.46.175:8082 -u "$USERNAME" --password-stdin
-                    docker tag bookmyplan-practice:latest 13.127.46.175:8082/bookmyplan-practice/bookmyplan-practice:latest
-                    docker push 13.127.46.175:8082/bookmyplan-practice/bookmyplan-practice:latest
-                    docker logout 13.127.46.175:8082
-                    '''
-                    }
-                }
-            }
-        }
+        //stage('Upload Docker Image to Harbor') {
+        //    steps {
+        //        script {
+        //            withCredentials([usernamePassword(credentialsId: 'harbor-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        //            sh '''
+        //            echo "$PASSWORD" | docker login 13.127.46.175:8082 -u "$USERNAME" --password-stdin
+        //            docker tag bookmyplan-practice:latest 13.127.46.175:8082/bookmyplan-practice/bookmyplan-practice:latest
+        //            docker push 13.127.46.175:8082/bookmyplan-practice/bookmyplan-practice:latest
+        //            docker logout 13.127.46.175:8082
+        //            '''
+        //            }
+        //        }
+        //    }
+        //}
 
 
         stage('Clean Up Local Docker Images') {
