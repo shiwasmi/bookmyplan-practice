@@ -118,10 +118,10 @@ pipeline {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'harbor-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh '''
-                    echo "$PASSWORD" | docker login 65.2.179.107:8082 -u "$USERNAME" --password-stdin
-                    docker tag bookmyplan-practice:latest 65.2.179.107:8082/bookmyplan-practice/bookmyplan-practice:latest
-                    docker push 65.2.179.107:8082/bookmyplan-practice/bookmyplan-practice:latest
-                    docker logout 65.2.179.107:8082
+                    echo "$PASSWORD" | docker login 13.127.46.175:8082 -u "$USERNAME" --password-stdin
+                    docker tag bookmyplan-practice:latest 13.127.46.175:8082/bookmyplan-practice/bookmyplan-practice:latest
+                    docker push 13.127.46.175:8082/bookmyplan-practice/bookmyplan-practice:latest
+                    docker logout 13.127.46.175:8082
                     '''
                     }
                 }
